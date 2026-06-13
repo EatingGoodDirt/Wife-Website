@@ -56,20 +56,116 @@ button:hover,a:hover{transform:scale(1.06)}
 @keyframes toast{0%{opacity:0;transform:translateX(-50%) translateY(-20px)}15%{opacity:1;transform:translateX(-50%) translateY(0)}100%{opacity:0;transform:translateX(-50%) translateY(-20px)}}
 .secret{position:fixed;inset:0;background:rgba(0,0,0,.86);z-index:100;display:none;align-items:center;justify-content:center;text-align:center;padding:30px}.secret div{max-width:700px;font-size:30px;line-height:1.35;text-shadow:0 0 30px #fff}
 @media(max-width:600px){.stage{justify-content:flex-start;padding-top:9vh}.title3d{font-size:28px;padding:14px 18px}button,a{font-size:16px;padding:12px 18px}}
+
+/* final readability fixes */
+.title3d{display:none!important}
+.questionCard{
+  background:rgba(8,4,20,.16)!important;
+  backdrop-filter:none!important;
+  border:none!important;
+  box-shadow:none!important;
+  padding:6px 10px!important;
+}
+.rainbowQuestion{
+  margin:0!important;
+  font-size:clamp(28px,5vw,48px)!important;
+  font-weight:900!important;
+  line-height:1.15!important;
+  background:linear-gradient(90deg,#ff3d9a,#ffd166,#66e8ff,#9b5cff,#ff3d9a);
+  background-size:300% 100%;
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  animation:rainbowText 4s linear infinite;
+  text-shadow:none!important;
+  filter:drop-shadow(0 0 5px rgba(255,255,255,.85)) drop-shadow(0 0 16px rgba(255,95,162,.65));
+}
+@keyframes rainbowText{
+  from{background-position:0% 50%}
+  to{background-position:300% 50%}
+}
+.stage{
+  justify-content:center!important;
+  padding-top:0!important;
+  padding-bottom:52px!important;
+}
+.buttons{margin-top:18px!important}
+
+/* better flying cats: less blob, more cat-like */
+.flyingCat{
+  width:78px!important;
+  height:38px!important;
+  border-radius:28px 32px 30px 26px!important;
+  background:linear-gradient(135deg,#fff2f8,#ffffff 55%,#d8f6ff)!important;
+}
+.flyingCat:before{
+  left:12px!important;
+  top:-16px!important;
+  width:38px!important;
+  height:34px!important;
+  border-radius:50% 50% 46% 46%!important;
+  background:linear-gradient(135deg,#fff2f8,#ffffff)!important;
+}
+.flyingCat:after{
+  right:-28px!important;
+  top:13px!important;
+  width:34px!important;
+  height:10px!important;
+  background:linear-gradient(90deg,#ff5fa2,transparent)!important;
+  border-radius:999px!important;
+}
+.cape{
+  left:-18px!important;
+  top:18px!important;
+  width:34px!important;
+  height:20px!important;
+}
+.ear1,.ear2{
+  top:-24px!important;
+  background:#fff!important;
+}
+.ear1{left:18px!important}
+.ear2{left:38px!important}
+.eye{
+  top:0px!important;
+  left:24px!important;
+  width:5px!important;
+  height:5px!important;
+}
+.whiskers{
+  position:absolute;
+  left:17px;
+  top:9px;
+  width:28px;
+  height:1px;
+  background:rgba(45,20,35,.65);
+  box-shadow:0 6px 0 rgba(45,20,35,.65);
+}
+.whiskers:after{
+  content:"";
+  position:absolute;
+  left:0;
+  top:3px;
+  width:28px;
+  height:1px;
+  background:rgba(45,20,35,.65);
+  transform:rotate(-12deg);
+}
+
 </style>
 </head>
 <body>
 <div class="bg"></div><div class="glow"></div><div class="steam"><span></span><span></span><span></span></div>
 <div class="stage" id="card">
-  <h1 class="title3d"></h1>
-  <div class="questionCard"><p><span style='background:linear-gradient(90deg,#ff5fa2,#ffd166,#66e8ff,#7b2cff,#ff5fa2);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 0 8px white);font-weight:900'>Who's the bigger slut?</span></p></div>
-  <div class="buttons"><button id="meBtn" onclick="celebrate()">Sakire 💖</button><button id="youBtn" onmouseover="moveButton()" onclick="wrongAnswer()">Judah ✨</button></div>
+  
+  <div class="questionCard"><p class="rainbowQuestion">Who's the bigger slut?</p></div>
+  <div class="buttons"><button id="meBtn" onclick="celebrate()">Sakire</button><button id="youBtn" onmouseover="moveButton()" onclick="wrongAnswer()">Judah</button></div>
   <h2 id="message"></h2><p id="subMessage"></p>
-  <div id="question2"><h2>Second Important Question</h2><p>Who has the bigger nose?</p><button id="noseMe" onclick="growNose()">Me</button><button id="noseYou" onclick="buttercup()">You</button><div id="bigNose" class="noseGraphic"></div><p id="noseMsg"></p></div>
+  <div id="question2"><h2>Second Important Question</h2><p>Who has the bigger nose?</p><button id="noseMe" onclick="growNose()">Sakire</button><button id="noseYou" onclick="buttercup()">Judah</button><div id="bigNose" class="noseGraphic"></div><p id="noseMsg"></p></div>
   <a class="music" href="https://www.youtube.com/watch?v=f0pdwd0miqs&list=RDf0pdwd0miqs&start_radio=1" target="_blank">Our song</a>
 </div>
-<div class="bottom-love"><span style='color:#8ff; text-shadow:0 0 8px #8ff,0 0 18px #6ff,0 0 30px #3ff,0 0 45px #0ff'>I love you Shaa</span></div>
-<div class="secret" id="secret"><div>Out of every person in the universe,<br>I would still choose you every single time.<br><br><span style='color:#8ff; text-shadow:0 0 8px #8ff,0 0 18px #6ff,0 0 30px #3ff,0 0 45px #0ff'>I love you Shaa</span>.</div></div>
+<div class="bottom-love">I love you Shaa</div>
+<div class="secret" id="secret"><div>Out of every person in the universe,<br>I would still choose you every single time.<br><br>I love you Shaa.</div></div>
 <script>
 let noseSize=50;let sCount=0;
 function moveButton(){const btn=document.getElementById("youBtn");btn.style.position="fixed";btn.style.left=Math.random()*75+"vw";btn.style.top=Math.random()*75+"vh";}
@@ -77,7 +173,7 @@ function wrongAnswer(){moveButton();showToast("Not correct, try again buttercup"
 function showToast(text){const t=document.createElement("div");t.className="wrongToast";t.textContent=text;document.body.appendChild(t);setTimeout(()=>t.remove(),1500);}
 function makeHeart(x=Math.random()*100+"vw",y="100vh"){const h=document.createElement("div");h.className="heart";h.style.left=x;h.style.top=y;const size=Math.random()*14+14;h.style.width=size+"px";h.style.height=size+"px";document.body.appendChild(h);setTimeout(()=>h.remove(),5200);}
 function firework(x="50vw",y="45vh",count=42){for(let i=0;i<count;i++){const f=document.createElement("div");f.className="firework";f.style.left=x;f.style.top=y;const angle=Math.random()*Math.PI*2;const dist=Math.random()*180+60;f.style.setProperty("--x",Math.cos(angle)*dist+"px");f.style.setProperty("--y",Math.sin(angle)*dist+"px");f.style.background=i%3===0?"#ff5fa2":i%3===1?"#ffd166":"#66e8ff";f.style.boxShadow="0 0 14px "+f.style.background;document.body.appendChild(f);setTimeout(()=>f.remove(),950);}}
-function flyingCat(){const c=document.createElement("div");c.className="flyingCat";c.innerHTML='<div class="cape"></div><div class="ear1"></div><div class="ear2"></div><div class="eye"></div>';c.style.left="-140px";c.style.top=Math.random()*75+"vh";c.style.animationDuration=Math.random()*8+10+"s";document.body.appendChild(c);setTimeout(()=>c.remove(),19000);}
+function flyingCat(){const c=document.createElement("div");c.className="flyingCat";c.innerHTML='<div class="cape"></div><div class="ear1"></div><div class="ear2"></div><div class="eye"></div><div class="whiskers"></div>';c.style.left="-140px";c.style.top=Math.random()*75+"vh";c.style.animationDuration=Math.random()*8+10+"s";document.body.appendChild(c);setTimeout(()=>c.remove(),19000);}
 function celebrate(){document.getElementById("message").textContent="I LOVE YOU";document.getElementById("subMessage").textContent="you adorable little slut";document.getElementById("subMessage").style.opacity="1";document.getElementById("question2").style.display="block";firework("50vw","42vh",70);firework("35vw","35vh",40);firework("65vw","35vh",40);for(let i=0;i<90;i++){setTimeout(()=>makeHeart(Math.random()*100+"vw","70vh"),i*20);}if(!document.getElementById("kissBtn")){setTimeout(()=>{const kissBtn=document.createElement("button");kissBtn.id="kissBtn";kissBtn.textContent="One more kiss";kissBtn.onclick=()=>{firework("50vw","45vh",45);for(let i=0;i<60;i++)setTimeout(()=>makeHeart(Math.random()*100+"vw","75vh"),i*15);};document.getElementById("card").appendChild(kissBtn);},800);}}
 function buttercup(){showToast("Not correct, try again buttercup");for(let i=0;i<35;i++){setTimeout(()=>makeHeart(Math.random()*100+"vw","0vh"),i*30);}}
 function growNose(){const nose=document.getElementById("bigNose");nose.style.display="block";noseSize+=38;nose.style.width=noseSize+"px";nose.style.height=(noseSize*1.35)+"px";document.getElementById("noseMsg").textContent="bro that's actually crazy";firework("50vw","45vh",34);}
