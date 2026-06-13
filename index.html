@@ -312,129 +312,92 @@ button:hover,a:hover{transform:scale(1.08)}
 }
 
 
-/* polished particles instead of cheap floating emojis */
+/* polished 3D title/question stack */
+.titleBox{
+  display:inline-block;
+  padding:16px 24px;
+  margin-bottom:14px;
+  border-radius:22px;
+  background:linear-gradient(145deg,rgba(255,255,255,.96),rgba(255,214,232,.88));
+  color:#8b0057;
+  box-shadow:
+    0 12px 0 rgba(130,18,88,.55),
+    0 24px 45px rgba(0,0,0,.45),
+    inset 0 2px 0 rgba(255,255,255,.9);
+  text-shadow:none;
+  transform:perspective(600px) rotateX(4deg);
+}
+.questionPanel{
+  display:inline-block;
+  padding:14px 22px;
+  margin:8px 0 10px;
+  border-radius:22px;
+  background:rgba(10,5,22,.55);
+  border:1px solid rgba(255,214,232,.45);
+  box-shadow:0 12px 35px rgba(0,0,0,.35),0 0 35px rgba(255,95,162,.22);
+  backdrop-filter:blur(8px);
+}
+
+/* cleaner particles, no cheap emojis */
 .particle{
   font-size:0 !important;
   width:22px;
   height:22px;
   filter:drop-shadow(0 0 10px rgba(255,255,255,.8));
 }
-
 .particle.heartShape{
   background:linear-gradient(135deg,#ff77b7,#ff2f8f);
   transform:rotate(45deg);
   border-radius:6px 6px 2px 6px;
 }
-.particle.heartShape:before,
-.particle.heartShape:after{
-  content:"";
-  position:absolute;
-  width:22px;
-  height:22px;
-  border-radius:50%;
-  background:inherit;
+.particle.heartShape:before,.particle.heartShape:after{
+  content:"";position:absolute;width:22px;height:22px;border-radius:50%;background:inherit;
 }
 .particle.heartShape:before{left:-11px;top:0}
 .particle.heartShape:after{top:-11px;left:0}
 
-.particle.sparkleShape{
-  background:transparent;
-}
+.particle.sparkleShape{background:transparent}
 .particle.sparkleShape:before{
-  content:"";
-  position:absolute;
-  left:9px;
-  top:0;
-  width:4px;
-  height:22px;
-  background:linear-gradient(#fff,#ffd166);
-  border-radius:999px;
-  box-shadow:0 0 14px #fff;
+  content:"";position:absolute;left:9px;top:0;width:4px;height:22px;
+  background:linear-gradient(#fff,#ffd166);border-radius:999px;box-shadow:0 0 14px #fff;
 }
 .particle.sparkleShape:after{
-  content:"";
-  position:absolute;
-  top:9px;
-  left:0;
-  width:22px;
-  height:4px;
-  background:linear-gradient(90deg,#fff,#ffd166);
-  border-radius:999px;
-  box-shadow:0 0 14px #fff;
+  content:"";position:absolute;top:9px;left:0;width:22px;height:4px;
+  background:linear-gradient(90deg,#fff,#ffd166);border-radius:999px;box-shadow:0 0 14px #fff;
 }
 
 .particle.kissShape{
-  width:30px;
-  height:18px;
-  background:linear-gradient(135deg,#ff6fb1,#ff1f7a);
-  border-radius:50% 50% 45% 45%;
-  transform:rotate(-18deg);
+  width:30px;height:18px;background:linear-gradient(135deg,#ff6fb1,#ff1f7a);
+  border-radius:50% 50% 45% 45%;transform:rotate(-18deg);
 }
 .particle.kissShape:before{
-  content:"";
-  position:absolute;
-  left:4px;
-  top:7px;
-  width:22px;
-  height:3px;
-  background:rgba(255,255,255,.55);
-  border-radius:999px;
+  content:"";position:absolute;left:4px;top:7px;width:22px;height:3px;
+  background:rgba(255,255,255,.55);border-radius:999px;
 }
 
 .particle.starShape{
-  width:0;
-  height:0;
-  border-left:11px solid transparent;
-  border-right:11px solid transparent;
-  border-bottom:20px solid #ffd166;
-  background:transparent;
-  filter:drop-shadow(0 0 10px #fff4b8);
+  width:0;height:0;border-left:11px solid transparent;border-right:11px solid transparent;
+  border-bottom:20px solid #ffd166;background:transparent;filter:drop-shadow(0 0 10px #fff4b8);
 }
 .particle.starShape:after{
-  content:"";
-  position:absolute;
-  left:-11px;
-  top:6px;
-  width:0;
-  height:0;
-  border-left:11px solid transparent;
-  border-right:11px solid transparent;
-  border-top:20px solid #ffd166;
+  content:"";position:absolute;left:-11px;top:6px;width:0;height:0;
+  border-left:11px solid transparent;border-right:11px solid transparent;border-top:20px solid #ffd166;
 }
 
 .particle.pawShape{
-  width:26px;
-  height:22px;
-  background:rgba(255,214,232,.95);
-  border-radius:50% 50% 45% 45%;
+  width:26px;height:22px;background:rgba(255,214,232,.95);border-radius:50% 50% 45% 45%;
 }
 .particle.pawShape:before{
-  content:"";
-  position:absolute;
-  width:7px;
-  height:7px;
-  border-radius:50%;
-  background:rgba(255,214,232,.95);
-  left:0;
-  top:-7px;
-  box-shadow:8px -5px 0 rgba(255,214,232,.95),17px -3px 0 rgba(255,214,232,.95),25px 1px 0 rgba(255,214,232,.95);
+  content:"";position:absolute;width:7px;height:7px;border-radius:50%;background:rgba(255,214,232,.95);
+  left:0;top:-7px;box-shadow:8px -5px 0 rgba(255,214,232,.95),17px -3px 0 rgba(255,214,232,.95),25px 1px 0 rgba(255,214,232,.95);
 }
 
 .particle.noseShape{
-  width:24px;
-  height:34px;
-  background:linear-gradient(#ffd1a9,#ff9f6e);
+  width:24px;height:34px;background:linear-gradient(#ffd1a9,#ff9f6e);
   border-radius:55% 55% 45% 45%;
 }
-.particle.noseShape:before,
-.particle.noseShape:after{
-  content:"";
-  position:absolute;
-  bottom:7px;
-  width:5px;
-  height:4px;
-  background:#7a3a2b;
-  border-radius:50%;
+.particle.noseShape:before,.particle.noseShape:after{
+  content:"";position:absolute;bottom:7px;width:5px;height:4px;background:#7a3a2b;border-radius:50%;
 }
 .particle.noseShape:before{left:7px}
 .particle.noseShape:after{right:7px}
@@ -469,12 +432,6 @@ button:hover,a:hover{transform:scale(1.08)}
   border-radius:999px;
   box-shadow:0 0 18px #ff5fa2;
 }
-
-.musicNote{
-  color:#ffd6e8;
-  text-shadow:0 0 12px #ff5fa2,0 0 20px white;
-}
-
 .heartFloat{
   font-size:0 !important;
   width:18px;
@@ -484,17 +441,15 @@ button:hover,a:hover{transform:scale(1.08)}
   border-radius:5px 5px 2px 5px;
   filter:drop-shadow(0 0 8px #ff8fc7);
 }
-.heartFloat:before,
-.heartFloat:after{
-  content:"";
-  position:absolute;
-  width:18px;
-  height:18px;
-  border-radius:50%;
-  background:inherit;
+.heartFloat:before,.heartFloat:after{
+  content:"";position:absolute;width:18px;height:18px;border-radius:50%;background:inherit;
 }
 .heartFloat:before{left:-9px;top:0}
 .heartFloat:after{top:-9px;left:0}
+.musicNote{
+  color:#ffd6e8;
+  text-shadow:0 0 12px #ff5fa2,0 0 20px white;
+}
 
 @media(max-width:600px){
   .card{padding:22px 18px;width:90vw}
@@ -511,8 +466,8 @@ button:hover,a:hover{transform:scale(1.08)}
 <div class="steam"><span></span><span></span><span></span></div>
 
 <div class="card" id="card">
-  <h1>❤️ Very Important Question ❤️</h1>
-  <p><b>Who's the bigger slut? 😏</b></p>
+  <h1 class="titleBox">Very Important Question</h1>
+  <div class="questionPanel"><p><b>Who's the bigger slut? 😏</b></p></div>
 
   <button id="meBtn" onclick="celebrate()">Me 🙋‍♂️</button>
   <button id="youBtn" onmouseover="moveButton()" onclick="moveButton()">You 😇</button>
@@ -678,11 +633,9 @@ function musicNote(){
 function flyingCat(){
   const c=document.createElement("div");
   c.className="spaceCat";
-  const cats=["🐈☄️","🐈‍⬛🚀","😻🛸","🐱✨"];
-  c.innerHTML=cats[Math.floor(Math.random()*cats.length)];
   c.style.left="-120px";
   c.style.top=Math.random()*75+"vh";
-  c.style.animationDuration=Math.random()*8+10+"s";
+  c.style.animationDuration=(Math.random()*8+10)+"s";
   document.body.appendChild(c);
   setTimeout(()=>c.remove(),19000);
 }
