@@ -1,123 +1,250 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>❤️ For My Wife ❤️</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For Sha ❤️</title>
 
   <style>
+    * { box-sizing: border-box; }
+
     body {
       margin: 0;
+      min-height: 100vh;
+      overflow: hidden;
       font-family: Arial, sans-serif;
-      background: linear-gradient(135deg,#ff4d6d,#ff85a2,#ffc2d1);
+      color: white;
+      background: linear-gradient(120deg, #12002f, #4b0082, #ff4d9d, #00c3ff);
+      background-size: 400% 400%;
+      animation: gradientMove 12s ease infinite;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
-      overflow: hidden;
+    }
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
     .card {
-      background: rgba(255,255,255,0.2);
-      backdrop-filter: blur(10px);
-      padding: 40px;
-      border-radius: 20px;
+      width: 90%;
+      max-width: 560px;
+      padding: 35px;
+      border-radius: 28px;
       text-align: center;
-      color: white;
-      box-shadow: 0 10px 30px rgba(0,0,0,.25);
-      max-width: 500px;
+      background: rgba(255,255,255,0.16);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 0 60px rgba(255,255,255,0.25);
+      z-index: 5;
+      animation: floatCard 4s ease-in-out infinite;
+    }
+
+    @keyframes floatCard {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
     }
 
     h1 {
       font-size: 42px;
+      margin: 0 0 15px;
+      text-shadow: 0 0 20px #fff;
     }
 
     p {
       font-size: 20px;
     }
 
-    button {
+    button, a {
       margin: 10px;
-      padding: 14px 28px;
-      font-size: 18px;
+      padding: 15px 26px;
       border: none;
       border-radius: 999px;
+      font-size: 18px;
+      font-weight: bold;
       cursor: pointer;
+      text-decoration: none;
+      transition: 0.2s;
     }
 
-    #yes {
+    button:hover, a:hover {
+      transform: scale(1.08);
+    }
+
+    #meBtn {
       background: white;
+      color: #9b0063;
+      box-shadow: 0 0 20px white;
     }
 
-    #no {
-      background: #222;
+    #youBtn {
+      background: #111;
       color: white;
       position: relative;
     }
 
-    .heart {
-      position: fixed;
-      top: -20px;
-      font-size: 24px;
-      animation: fall linear forwards;
+    .music {
+      display: inline-block;
+      background: rgba(255,255,255,0.9);
+      color: #4b0082;
     }
 
-    @keyframes fall {
-      to {
-        transform: translateY(110vh);
-      }
+    #message {
+      font-size: 32px;
+      margin-top: 20px;
+      text-shadow: 0 0 25px white;
+    }
+
+    #subMessage {
+      font-size: 21px;
+      opacity: 0;
+      animation: none;
+    }
+
+    .bottom-love {
+      position: fixed;
+      bottom: 18px;
+      width: 100%;
+      text-align: center;
+      font-size: 22px;
+      font-weight: bold;
+      text-shadow: 0 0 20px white;
+      z-index: 10;
+    }
+
+    .particle, .heart, .star {
+      position: fixed;
+      pointer-events: none;
+      z-index: 20;
+      animation: fly 3s linear forwards;
+    }
+
+    @keyframes fly {
+      0% { transform: translate(0,0) scale(1); opacity: 1; }
+      100% { transform: translate(var(--x), var(--y)) scale(0); opacity: 0; }
+    }
+
+    .shooting-star {
+      position: fixed;
+      width: 140px;
+      height: 2px;
+      background: linear-gradient(90deg, white, transparent);
+      transform: rotate(-25deg);
+      animation: shoot 1.8s linear forwards;
+      z-index: 1;
+    }
+
+    @keyframes shoot {
+      from { transform: translate(-200px, -100px) rotate(-25deg); opacity: 1; }
+      to { transform: translate(120vw, 80vh) rotate(-25deg); opacity: 0; }
+    }
+
+    .cat {
+      position: fixed;
+      top: 15%;
+      left: -180px;
+      font-size: 70px;
+      z-index: 2;
+      animation: catFly 14s linear infinite;
+    }
+
+    @keyframes catFly {
+      from { transform: translateX(-200px) rotate(-10deg); }
+      to { transform: translateX(120vw) rotate(20deg); }
+    }
+
+    .rainbow {
+      animation: rainbowPulse 1s infinite;
+    }
+
+    @keyframes rainbowPulse {
+      0% { filter: hue-rotate(0deg) brightness(1.2); }
+      100% { filter: hue-rotate(360deg) brightness(1.5); }
     }
   </style>
 </head>
 
 <body>
 
-<div class="card">
-  <h1>❤️ Important Question ❤️</h1>
-  <p>Who's the bigger goober? 😏</p>
+  <div class="cat">🐈☄️</div>
 
-  <button id="yes" onclick="celebrate()">
-    Me 😂
-  </button>
+  <div class="card" id="card">
+    <h1>❤️ Very Important Question ❤️</h1>
+    <p>Who's the bigger slut? 😏</p>
 
-  <button id="no" onclick="moveButton()">
-    You 😇
-  </button>
+    <button id="meBtn" onclick="celebrate()">Me 🙋‍♂️</button>
+    <button id="youBtn" onmouseover="moveButton()" onclick="moveButton()">You 😇</button>
 
-  <h2 id="msg"></h2>
-</div>
+    <h2 id="message"></h2>
+    <p id="subMessage"></p>
 
-<script>
-function moveButton() {
-  const btn = document.getElementById("no");
+    <a class="music" href="https://www.youtube.com/results?search_query=Deftones+Sextape" target="_blank">
+      🎵 Play the vibe
+    </a>
+  </div>
 
-  btn.style.position = "absolute";
-  btn.style.left = Math.random()*80 + "%";
-  btn.style.top = Math.random()*80 + "%";
-}
+  <div class="bottom-love">I love you Sha ❤️</div>
 
-function celebrate() {
+  <script>
+    function moveButton() {
+      const btn = document.getElementById("youBtn");
+      btn.style.position = "fixed";
+      btn.style.left = Math.random() * 75 + "vw";
+      btn.style.top = Math.random() * 75 + "vh";
+    }
 
-  document.getElementById("msg").innerHTML =
-    "❤️ I love you ❤️";
+    function makeParticle(symbol) {
+      const p = document.createElement("div");
+      p.className = "particle";
+      p.innerHTML = symbol;
+      p.style.left = "50vw";
+      p.style.top = "50vh";
+      p.style.fontSize = Math.random() * 25 + 20 + "px";
+      p.style.setProperty("--x", (Math.random() * 800 - 400) + "px");
+      p.style.setProperty("--y", (Math.random() * 800 - 400) + "px");
+      document.body.appendChild(p);
+      setTimeout(() => p.remove(), 3000);
+    }
 
-  for(let i=0;i<150;i++){
+    function celebrate() {
+      document.body.classList.add("rainbow");
+      document.getElementById("card").style.transform = "scale(1.08)";
+      document.getElementById("message").innerHTML = "I LOVE YOU ❤️";
+      document.getElementById("subMessage").innerHTML = "you adorable little slut 😂💕";
+      document.getElementById("subMessage").style.opacity = "1";
 
-    const h=document.createElement("div");
-    h.className="heart";
-    h.innerHTML="❤️";
+      const symbols = ["❤️","💕","💖","✨","⭐","🌙","💋","🎆","💫"];
 
-    h.style.left=Math.random()*100+"vw";
-    h.style.animationDuration=(Math.random()*3+2)+"s";
+      for (let i = 0; i < 220; i++) {
+        setTimeout(() => {
+          makeParticle(symbols[Math.floor(Math.random() * symbols.length)]);
+        }, i * 8);
+      }
 
-    document.body.appendChild(h);
+      setTimeout(() => {
+        const kissBtn = document.createElement("button");
+        kissBtn.innerHTML = "One more kiss 💋";
+        kissBtn.onclick = () => {
+          for (let i = 0; i < 100; i++) makeParticle("💋");
+        };
+        document.getElementById("card").appendChild(kissBtn);
+      }, 1200);
+    }
 
-    setTimeout(()=>{
-      h.remove();
-    },5000);
-  }
-}
-</script>
+    function shootingStar() {
+      const s = document.createElement("div");
+      s.className = "shooting-star";
+      s.style.left = Math.random() * 100 + "vw";
+      s.style.top = Math.random() * 40 + "vh";
+      document.body.appendChild(s);
+      setTimeout(() => s.remove(), 2000);
+    }
+
+    setInterval(shootingStar, 1800);
+  </script>
 
 </body>
 </html>
+```
