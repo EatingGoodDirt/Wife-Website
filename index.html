@@ -1,1 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>❤️ For My Wife ❤️</title>
 
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg,#ff4d6d,#ff85a2,#ffc2d1);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.2);
+      backdrop-filter: blur(10px);
+      padding: 40px;
+      border-radius: 20px;
+      text-align: center;
+      color: white;
+      box-shadow: 0 10px 30px rgba(0,0,0,.25);
+      max-width: 500px;
+    }
+
+    h1 {
+      font-size: 42px;
+    }
+
+    p {
+      font-size: 20px;
+    }
+
+    button {
+      margin: 10px;
+      padding: 14px 28px;
+      font-size: 18px;
+      border: none;
+      border-radius: 999px;
+      cursor: pointer;
+    }
+
+    #yes {
+      background: white;
+    }
+
+    #no {
+      background: #222;
+      color: white;
+      position: relative;
+    }
+
+    .heart {
+      position: fixed;
+      top: -20px;
+      font-size: 24px;
+      animation: fall linear forwards;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(110vh);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="card">
+  <h1>❤️ Important Question ❤️</h1>
+  <p>Who's the bigger goober? 😏</p>
+
+  <button id="yes" onclick="celebrate()">
+    Me 😂
+  </button>
+
+  <button id="no" onclick="moveButton()">
+    You 😇
+  </button>
+
+  <h2 id="msg"></h2>
+</div>
+
+<script>
+function moveButton() {
+  const btn = document.getElementById("no");
+
+  btn.style.position = "absolute";
+  btn.style.left = Math.random()*80 + "%";
+  btn.style.top = Math.random()*80 + "%";
+}
+
+function celebrate() {
+
+  document.getElementById("msg").innerHTML =
+    "❤️ I love you ❤️";
+
+  for(let i=0;i<150;i++){
+
+    const h=document.createElement("div");
+    h.className="heart";
+    h.innerHTML="❤️";
+
+    h.style.left=Math.random()*100+"vw";
+    h.style.animationDuration=(Math.random()*3+2)+"s";
+
+    document.body.appendChild(h);
+
+    setTimeout(()=>{
+      h.remove();
+    },5000);
+  }
+}
+</script>
+
+</body>
+</html>
